@@ -1,0 +1,40 @@
+<div class="skill-card" [routerLink]="['/skills', skill.id]">
+  <div class="card-header">
+    <div class="user-info">
+      <span class="avatar">{{ skill.userAvatar }}</span>
+      <span class="username">{{ skill.userName }}</span>
+    </div>
+    <span class="category-badge">{{ skill.category }}</span>
+  </div>
+
+  <h3 class="skill-title">{{ skill.title }}</h3>
+  
+  <div class="skill-rating">
+    <span class="stars">{{ skill.level | starRating }}</span>
+    <span class="level-text">Niveau {{ skill.level }}/5</span>
+  </div>
+
+  <p class="skill-description">{{ skill.description | slice:0:120 }}{{ skill.description.length > 120 ? '...' : '' }}</p>
+
+  <div class="skill-exchange">
+    <div class="exchange-item offering">
+      <span class="label">💡 Propose:</span>
+      <span class="value">{{ skill.offering }}</span>
+    </div>
+    <div class="exchange-item seeking">
+      <span class="label">🔍 Cherche:</span>
+      <span class="value">{{ skill.seeking }}</span>
+    </div>
+  </div>
+
+  <div class="skill-tags">
+    <span class="tag" *ngFor="let tag of skill.tags.slice(0, 3)">{{ tag }}</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="duration">⏱️ {{ skill.duration }}</span>
+    <span class="availability" [class.available]="skill.available">
+      {{ skill.available ? '✓ Disponible' : '✗ Non disponible' }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="skills-list-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>📚 Compétences disponibles</h1>
+      <p>Découvrez toutes les compétences que nos membres souhaitent partager</p>
+    </div>
+
+    <!-- Filtres et recherche -->
+    <div class="filters-section">
+      <div class="search-box">
+        <input 
+          type="text" 
+          [(ngModel)]="searchTerm" 
+          (input)="onSearch()"
+          placeholder="🔍 Rechercher une compétence..."
+          class="search-input"
+        />
+      </div>
+
+      <div class="category-filters">
+        <button 
+          *ngFor="let category of categories"
+          [class.active]="selectedCategory === category"
+          (click)="filterByCategory(category)"
+          class="filter-btn"
+        >
+          {{ category === 'all' ? 'Toutes' : category }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="loading">
+      <p>⏳ Chargement des compétences...</p>
+    </div>
+
+    <!-- Liste des compétences -->
+    <div *ngIf="!loading" class="skills-grid">
+      <app-skill-card 
+        *ngFor="let skill of filteredSkills" 
+        [skill]="skill"
+      ></app-skill-card>
+    </div>
+
+    <!-- Message si aucune compétence -->
+    <div *ngIf="!loading && filteredSkills.length === 0" class="no-results">
+      <p>😔 Aucune compétence trouvée</p>
+      <a routerLink="/add-skill" class="btn btn-primary">Proposer une compétence</a>
+    </div>
+  </div>
+</div>

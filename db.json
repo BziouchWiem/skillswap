@@ -1,0 +1,301 @@
+{
+  "skills": [
+    {
+      "id": "1",
+      "title": "Photoshop & Design Graphique",
+      "category": "Design",
+      "level": 4,
+      "description": "Je maîtrise Photoshop pour la retouche photo, la création de visuels et le design graphique. Plus de 5 ans d'expérience.",
+      "offering": "Photoshop, Illustrator, Design UI/UX",
+      "seeking": "Développement Web (React, Angular)",
+      "userId": 1,
+      "userName": "Sophie Martin",
+      "userAvatar": "👩‍🎨",
+      "duration": "2-3 heures par semaine",
+      "available": true,
+      "tags": [
+        "Design",
+        "Graphisme",
+        "UI/UX",
+        "Adobe"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Excel Avancé & Data Analysis",
+      "category": "Bureautique",
+      "level": 5,
+      "description": "Expert Excel avec macros VBA, tableaux croisés dynamiques, Power Query et analyses de données complexes.",
+      "offering": "Excel, Power BI, Data Analysis",
+      "seeking": "Photoshop, Design graphique",
+      "userId": 2,
+      "userName": "Thomas Dubois",
+      "userAvatar": "👨‍💼",
+      "duration": "1-2 heures par semaine",
+      "available": true,
+      "tags": [
+        "Excel",
+        "Data",
+        "Bureautique",
+        "Analyse"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Développement React & JavaScript",
+      "category": "Programmation",
+      "level": 4,
+      "description": "Développeur React avec 3 ans d'expérience. Je peux enseigner les bases et concepts avancés de React, Redux, et JavaScript moderne.",
+      "offering": "React, JavaScript, Redux, Node.js",
+      "seeking": "Marketing Digital, SEO",
+      "userId": 3,
+      "userName": "Alexandre Chen",
+      "userAvatar": "👨‍💻",
+      "duration": "3-4 heures par semaine",
+      "available": true,
+      "tags": [
+        "React",
+        "JavaScript",
+        "Frontend",
+        "Web"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Marketing Digital & SEO",
+      "category": "Marketing",
+      "level": 5,
+      "description": "Spécialiste en marketing digital, SEO, Google Ads et stratégie de contenu. 7 ans d'expérience en agence.",
+      "offering": "SEO, Google Ads, Social Media Marketing",
+      "seeking": "Développement Mobile (Flutter, React Native)",
+      "userId": 4,
+      "userName": "Léa Bernard",
+      "userAvatar": "👩‍💼",
+      "duration": "2 heures par semaine",
+      "available": true,
+      "tags": [
+        "Marketing",
+        "SEO",
+        "Google Ads",
+        "Digital"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Photographie Professionnelle",
+      "category": "Art",
+      "level": 4,
+      "description": "Photographe professionnel spécialisé en portrait et événementiel. Je peux enseigner composition, lumière et retouche.",
+      "offering": "Photographie, Lightroom, Composition",
+      "seeking": "Montage Vidéo (Premiere Pro, DaVinci)",
+      "userId": 5,
+      "userName": "Marc Lefebvre",
+      "userAvatar": "📸",
+      "duration": "Flexible",
+      "available": true,
+      "tags": [
+        "Photo",
+        "Lightroom",
+        "Portrait",
+        "Art"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Montage Vidéo & Motion Design",
+      "category": "Audiovisuel",
+      "level": 5,
+      "description": "Expert en montage vidéo avec Premiere Pro, After Effects et DaVinci Resolve. Motion design et effets spéciaux.",
+      "offering": "Premiere Pro, After Effects, DaVinci",
+      "seeking": "Développement Python, Data Science",
+      "userId": 6,
+      "userName": "Julie Moreau",
+      "userAvatar": "🎬",
+      "duration": "2-3 heures par semaine",
+      "available": true,
+      "tags": [
+        "Vidéo",
+        "Motion",
+        "Adobe",
+        "Montage"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Python & Data Science",
+      "category": "Programmation",
+      "level": 4,
+      "description": "Data Scientist avec expertise en Python, Pandas, Machine Learning et visualisation de données.",
+      "offering": "Python, Pandas, Machine Learning, Jupyter",
+      "seeking": "Design UI/UX, Figma",
+      "userId": 7,
+      "userName": "David Garcia",
+      "userAvatar": "🐍",
+      "duration": "3 heures par semaine",
+      "available": true,
+      "tags": [
+        "Python",
+        "Data Science",
+        "ML",
+        "IA"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Guitare & Théorie Musicale",
+      "category": "Musique",
+      "level": 5,
+      "description": "Professeur de guitare avec 10 ans d'expérience. Tous niveaux, tous styles (classique, rock, jazz).",
+      "offering": "Guitare, Solfège, Théorie musicale",
+      "seeking": "Langue Anglaise, Conversation",
+      "userId": 8,
+      "userName": "Pierre Rousseau",
+      "userAvatar": "🎸",
+      "duration": "1-2 heures par semaine",
+      "available": true,
+      "tags": [
+        "Musique",
+        "Guitare",
+        "Solfège",
+        "Art"
+      ]
+    },
+    {
+      "id": "bb59",
+      "title": "design",
+      "category": "Design",
+      "level": 3,
+      "description": "rlkthtrhlketjhiojlktrnjilkryopdjihgihtjitjhieqhj",
+      "offering": "ui/ux",
+      "seeking": "dev",
+      "duration": "2",
+      "tags": [],
+      "userId": 1,
+      "userName": "Utilisateur Demo",
+      "userAvatar": "👤",
+      "available": true
+    }
+  ],
+  "matches": [
+    {
+      "id": "1",
+      "skill1Id": 1,
+      "skill2Id": 2,
+      "user1Id": 1,
+      "user2Id": 2,
+      "status": "pending",
+      "matchScore": 85,
+      "createdAt": "2025-11-25T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "skill1Id": 3,
+      "skill2Id": 4,
+      "user1Id": 3,
+      "user2Id": 4,
+      "status": "accepted",
+      "matchScore": 90,
+      "createdAt": "2025-11-20T14:15:00Z"
+    },
+    {
+      "id": "3",
+      "skill1Id": 5,
+      "skill2Id": 6,
+      "user1Id": 5,
+      "user2Id": 6,
+      "status": "accepted",
+      "matchScore": 95,
+      "createdAt": "2025-11-18T09:00:00Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Sophie Martin",
+      "email": "sophie.martin@email.com",
+      "avatar": "👩‍🎨",
+      "skills": [
+        1
+      ],
+      "rating": 4.8,
+      "exchanges": 12
+    },
+    {
+      "id": "2",
+      "name": "Thomas Dubois",
+      "email": "thomas.dubois@email.com",
+      "avatar": "👨‍💼",
+      "skills": [
+        2
+      ],
+      "rating": 4.9,
+      "exchanges": 15
+    },
+    {
+      "id": "3",
+      "name": "Alexandre Chen",
+      "email": "alex.chen@email.com",
+      "avatar": "👨‍💻",
+      "skills": [
+        3
+      ],
+      "rating": 4.7,
+      "exchanges": 8
+    },
+    {
+      "id": "4",
+      "name": "Léa Bernard",
+      "email": "lea.bernard@email.com",
+      "avatar": "👩‍💼",
+      "skills": [
+        4
+      ],
+      "rating": 5,
+      "exchanges": 20
+    },
+    {
+      "id": "5",
+      "name": "Marc Lefebvre",
+      "email": "marc.lefebvre@email.com",
+      "avatar": "📸",
+      "skills": [
+        5
+      ],
+      "rating": 4.6,
+      "exchanges": 10
+    },
+    {
+      "id": "6",
+      "name": "Julie Moreau",
+      "email": "julie.moreau@email.com",
+      "avatar": "🎬",
+      "skills": [
+        6
+      ],
+      "rating": 4.9,
+      "exchanges": 18
+    },
+    {
+      "id": "7",
+      "name": "David Garcia",
+      "email": "david.garcia@email.com",
+      "avatar": "🐍",
+      "skills": [
+        7
+      ],
+      "rating": 4.5,
+      "exchanges": 6
+    },
+    {
+      "id": "8",
+      "name": "Pierre Rousseau",
+      "email": "pierre.rousseau@email.com",
+      "avatar": "🎸",
+      "skills": [
+        8
+      ],
+      "rating": 5,
+      "exchanges": 25
+    }
+  ]
+}

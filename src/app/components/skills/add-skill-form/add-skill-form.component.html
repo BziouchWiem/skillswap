@@ -1,0 +1,145 @@
+<div class="add-skill-page">
+  <div class="container">
+    <div class="page-header">
+      <h1>➕ Proposer une compétence</h1>
+      <p>Partagez ce que vous savez et trouvez quelqu'un pour apprendre ce que vous voulez!</p>
+    </div>
+
+    <form [formGroup]="skillForm" (ngSubmit)="onSubmit()" class="skill-form">
+      <!-- Titre -->
+      <div class="form-group">
+        <label for="title">Titre de votre compétence *</label>
+        <input 
+          type="text" 
+          id="title"
+          formControlName="title"
+          placeholder="Ex: Photoshop & Design Graphique"
+          [class.error]="submitted && f['title'].errors"
+        />
+        <div *ngIf="submitted && f['title'].errors" class="error-message">
+          <span *ngIf="f['title'].errors['required']">Le titre est obligatoire</span>
+          <span *ngIf="f['title'].errors['minlength']">Le titre doit contenir au moins 5 caractères</span>
+        </div>
+      </div>
+
+      <!-- Catégorie et Niveau -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="category">Catégorie *</label>
+          <select 
+            id="category"
+            formControlName="category"
+            [class.error]="submitted && f['category'].errors"
+          >
+            <option value="">Sélectionnez une catégorie</option>
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+          <div *ngIf="submitted && f['category'].errors" class="error-message">
+            La catégorie est obligatoire
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="level">Niveau (1-5) *</label>
+          <input 
+            type="number" 
+            id="level"
+            formControlName="level"
+            min="1"
+            max="5"
+            [class.error]="submitted && f['level'].errors"
+          />
+          <div class="level-indicator">
+            <span class="stars">{{ skillForm.value.level | starRating }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description détaillée *</label>
+        <textarea 
+          id="description"
+          formControlName="description"
+          rows="4"
+          placeholder="Décrivez votre expertise, votre expérience et ce que vous pouvez enseigner..."
+          [class.error]="submitted && f['description'].errors"
+        ></textarea>
+        <div *ngIf="submitted && f['description'].errors" class="error-message">
+          <span *ngIf="f['description'].errors['required']">La description est obligatoire</span>
+          <span *ngIf="f['description'].errors['minlength']">La description doit contenir au moins 20 caractères</span>
+        </div>
+      </div>
+
+      <!-- Ce que je propose -->
+      <div class="form-group highlight">
+        <label for="offering">💡 Ce que je propose *</label>
+        <input 
+          type="text" 
+          id="offering"
+          formControlName="offering"
+          placeholder="Ex: Photoshop, Illustrator, Design UI/UX"
+          [class.error]="submitted && f['offering'].errors"
+        />
+        <small>Listez les compétences spécifiques que vous pouvez enseigner</small>
+        <div *ngIf="submitted && f['offering'].errors" class="error-message">
+          Ce champ est obligatoire
+        </div>
+      </div>
+
+      <!-- Ce que je cherche -->
+      <div class="form-group highlight">
+        <label for="seeking">🔍 Ce que je cherche *</label>
+        <input 
+          type="text" 
+          id="seeking"
+          formControlName="seeking"
+          placeholder="Ex: Développement Web, React, Angular"
+          [class.error]="submitted && f['seeking'].errors"
+        />
+        <small>Indiquez ce que vous aimeriez apprendre en échange</small>
+        <div *ngIf="submitted && f['seeking'].errors" class="error-message">
+          Ce champ est obligatoire
+        </div>
+      </div>
+
+      <!-- Durée -->
+      <div class="form-group">
+        <label for="duration">⏱️ Disponibilité *</label>
+        <input 
+          type="text" 
+          id="duration"
+          formControlName="duration"
+          placeholder="Ex: 2-3 heures par semaine"
+          [class.error]="submitted && f['duration'].errors"
+        />
+        <div *ngIf="submitted && f['duration'].errors" class="error-message">
+          La disponibilité est obligatoire
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="form-group">
+        <label for="tags">🏷️ Tags (séparés par des virgules)</label>
+        <input 
+          type="text" 
+          id="tags"
+          formControlName="tags"
+          placeholder="Ex: Design, Graphisme, UI/UX, Adobe"
+        />
+        <small>Ajoutez des mots-clés pour faciliter la recherche</small>
+      </div>
+
+      <!-- Boutons -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <span class="btn-icon">✓</span>
+          Publier ma compétence
+        </button>
+        <button type="button" class="btn btn-secondary" routerLink="/skills">
+          Annuler
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
