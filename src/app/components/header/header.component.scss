@@ -1,9 +1,11 @@
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #1e293b 0%, #1a1f3a 100%);
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
 .container {
@@ -27,7 +29,7 @@
   color: white;
   font-size: 1.5rem;
   font-weight: 800;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
@@ -36,10 +38,18 @@
 
 .logo-icon {
   font-size: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .logo-text {
   font-size: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-links {
@@ -50,31 +60,58 @@
   margin: 0;
 
   li a {
-    color: white;
+    color: #cbd5e1;
     text-decoration: none;
     font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: all 0.3s ease;
     display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      background: rgba(102, 126, 234, 0.1);
       transform: translateY(-2px);
+
+      &::after {
+        width: 100%;
+      }
     }
 
     &.active {
-      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      background: rgba(102, 126, 234, 0.2);
+
+      &::after {
+        width: 100%;
+      }
     }
 
     &.btn-add {
-      background: white;
-      color: #667eea;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       font-weight: 700;
+      border: none;
+
+      &::after {
+        display: none;
+      }
 
       &:hover {
-        background: #f093fb;
-        color: white;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        transform: translateY(-2px);
       }
     }
   }

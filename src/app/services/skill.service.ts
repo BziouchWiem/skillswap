@@ -43,7 +43,7 @@ export interface User {
   providedIn: 'root'
 })
 export class SkillService {
-  private baseUrl = 'http://localhost:3002';
+  private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 

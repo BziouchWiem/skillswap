@@ -9,22 +9,27 @@
   h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #1a202c;
+    color: #f1f5f9;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   p {
     font-size: 1.1rem;
-    color: #718096;
+    color: #94a3b8;
   }
 }
 
 .skill-form {
   max-width: 800px;
   margin: 0 auto;
-  background: white;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border: 1px solid #334155;
   padding: 3rem;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .form-group {
@@ -33,7 +38,7 @@
   label {
     display: block;
     font-weight: 700;
-    color: #2d3748;
+    color: #f1f5f9;
     margin-bottom: 0.5rem;
     font-size: 1.05rem;
   }
@@ -44,19 +49,26 @@
     width: 100%;
     padding: 0.875rem 1.25rem;
     font-size: 1rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #334155;
     border-radius: 10px;
+    background: rgba(30, 41, 59, 0.5);
+    color: #f1f5f9;
     transition: all 0.3s ease;
     font-family: inherit;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
 
     &:focus {
       outline: none;
       border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+      background: rgba(30, 41, 59, 0.7);
     }
 
     &.error {
-      border-color: #f56565;
+      border-color: #ef4444;
     }
   }
 
@@ -68,14 +80,16 @@
   small {
     display: block;
     margin-top: 0.5rem;
-    color: #718096;
+    color: #94a3b8;
     font-size: 0.9rem;
   }
 
   &.highlight {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     padding: 1.5rem;
     border-radius: 12px;
+    border-left: 4px solid #667eea;
+    border: 1px solid #334155;
     border-left: 4px solid #667eea;
   }
 }
@@ -91,13 +105,13 @@
   
   .stars {
     font-size: 1.5rem;
-    color: #f6ad55;
+    color: #f59e0b;
     letter-spacing: 3px;
   }
 }
 
 .error-message {
-  color: #f56565;
+  color: #ef4444;
   font-size: 0.9rem;
   margin-top: 0.5rem;
   font-weight: 600;
@@ -167,5 +181,5 @@
 .form-group.success input,
 .form-group.success select,
 .form-group.success textarea {
-  border-color: #48bb78;
+  border-color: #34d399;
 }

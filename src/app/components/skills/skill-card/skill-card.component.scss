@@ -1,8 +1,9 @@
 .skill-card {
-  background: white;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border: 1px solid #334155;
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -12,6 +13,7 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
   }
 }
 
@@ -32,7 +34,7 @@
 
   .username {
     font-weight: 600;
-    color: #2d3748;
+    color: #f1f5f9;
   }
 }
 
@@ -47,7 +49,7 @@
 
 .skill-title {
   font-size: 1.3rem;
-  color: #1a202c;
+  color: #f1f5f9;
   margin: 0;
   line-height: 1.4;
 }
@@ -58,26 +60,27 @@
   gap: 0.5rem;
 
   .stars {
-    color: #f6ad55;
+    color: #f59e0b;
     font-size: 1.2rem;
     letter-spacing: 2px;
   }
 
   .level-text {
-    color: #718096;
+    color: #94a3b8;
     font-size: 0.9rem;
   }
 }
 
 .skill-description {
-  color: #4a5568;
+  color: #cbd5e1;
   line-height: 1.6;
   margin: 0;
   min-height: 60px;
 }
 
 .skill-exchange {
-  background: #f7fafc;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid #334155;
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -93,17 +96,17 @@
   .label {
     font-weight: 700;
     min-width: 90px;
-    color: #2d3748;
+    color: #cbd5e1;
   }
 
   .value {
-    color: #4a5568;
+    color: #cbd5e1;
     flex: 1;
     font-size: 0.95rem;
   }
 
   &.offering .label {
-    color: #48bb78;
+    color: #34d399;
   }
 
   &.seeking .label {
@@ -118,8 +121,9 @@
 }
 
 .tag {
-  background: #e2e8f0;
-  color: #4a5568;
+  background: rgba(102, 126, 234, 0.15);
+  color: #cbd5e1;
+  border: 1px solid #334155;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.85rem;
@@ -131,21 +135,21 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid #334155;
   margin-top: auto;
 
   .duration {
-    color: #718096;
+    color: #94a3b8;
     font-size: 0.9rem;
   }
 
   .availability {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #e53e3e;
+    color: #ef4444;
 
     &.available {
-      color: #48bb78;
+      color: #34d399;
     }
   }
 }
