@@ -1,121 +1,88 @@
 <div class="matches-page">
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Mes Invitations</h1>
+      <p class="tagline">Gérez vos invitations d'échange de compétences</p>
+      <p class="subtitle">Découvrez de nouveaux partenaires et confirmez les échanges qui vous intéressent</p>
+    </div>
+  </div>
+
   <div class="container">
-    <div class="page-header">
-      <h1>🤝 Mes Matchs</h1>
-      <p>Découvrez les échanges de compétences qui vous correspondent</p>
-    </div>
+    <!-- Swipe Cards Container -->
+    <div class="swipe-container">
+      <div class="swipe-cards-wrapper">
+        <!-- Current Card -->
+        <div class="match-card swipe-card" 
+             *ngIf="currentInvitation"
+             [class.swiped-left]="swipeDirection === 'left'"
+             [class.swiped-right]="swipeDirection === 'right'">
+          <div class="match-header">
+            <span class="match-score">{{ currentInvitation.score }}% Match</span>
+            <span class="match-status" [ngClass]="currentInvitation.status">
+              {{ currentInvitation.status === 'pending' ? 'En attente de confirmation' : 'Acceptée' }}
+            </span>
+          </div>
+          
+          <div class="match-users-single">
+            <span class="avatar">{{ currentInvitation.partner.avatar }}</span>
+            <h3>{{ currentInvitation.partner.name }}</h3>
+            <p class="skill-label">Propose:</p>
+            <p class="skill-offer">{{ currentInvitation.partner.skill }}</p>
+          </div>
 
-    <div class="info-banner">
-      <div class="banner-icon">🎯</div>
-      <div class="banner-content">
-        <h3>Comment fonctionne le matching ?</h3>
-        <p>Notre algorithme intelligent analyse ce que vous proposez et ce que vous cherchez pour trouver les meilleurs partenaires d'échange!</p>
+          <div class="exchange-divider">⇄</div>
+
+          <div class="your-skill">
+            <p class="skill-label">Vous proposez:</p>
+            <p class="skill-value">{{ currentInvitation.yourSkill }}</p>
+          </div>
+
+          <div class="match-details">
+            <p><strong>Pourquoi cette invitation?</strong></p>
+            <p>{{ currentInvitation.reason }}</p>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" *ngIf="!currentInvitation">
+          <div class="empty-icon">🎉</div>
+          <h2>Pas plus d'invitations!</h2>
+          <p>Vous avez examiné toutes vos invitations.</p>
+          <button class="btn btn-primary" (click)="resetInvitations()">Recommencer</button>
+        </div>
+      </div>
+
+      <!-- Swipe Buttons -->
+      <div class="swipe-buttons" *ngIf="currentInvitation">
+        <button class="btn btn-reject" (click)="rejectInvitation()" title="Rejeter">
+          Rejeter
+        </button>
+        <div class="counter">{{ remainingInvitations }} invitations restantes</div>
+        <button class="btn btn-accept" (click)="confirmInvitation()" title="Confirmer">
+          Confirmer
+        </button>
       </div>
     </div>
 
-    <div class="matches-grid">
-      <div class="match-card">
-        <div class="match-header">
-          <span class="match-score">Match: 85%</span>
-          <span class="match-status pending">En attente</span>
-        </div>
-        
-        <div class="match-users">
-          <div class="user-side">
-            <span class="avatar">👩‍🎨</span>
-            <h4>Sophie Martin</h4>
-            <p class="skill-offer">Propose: Photoshop & Design</p>
+    <!-- Accepted Invitations Section -->
+    <div class="accepted-matches" *ngIf="hasAcceptedInvitations()">
+      <h2>✅ Invitations Acceptées</h2>
+      <div class="accepted-grid">
+        <div class="accepted-card" *ngFor="let invitation of acceptedInvitations">
+          <div class="match-header">
+            <span class="match-score">{{ invitation.score }}% Match</span>
           </div>
-          
-          <div class="exchange-icon">⇄</div>
-          
-          <div class="user-side">
-            <span class="avatar">👨‍💼</span>
-            <h4>Thomas Dubois</h4>
-            <p class="skill-offer">Propose: Excel & Data Analysis</p>
+          <div class="accepted-partner-info">
+            <span class="avatar">{{ invitation.partner.avatar }}</span>
+            <h4>{{ invitation.partner.name }}</h4>
+            <p class="skill">{{ invitation.partner.skill }}</p>
           </div>
-        </div>
-
-        <div class="match-details">
-          <p><strong>Pourquoi ce match?</strong></p>
-          <p>Sophie cherche à apprendre Excel et Thomas veut maîtriser Photoshop. Un échange parfait!</p>
-        </div>
-
-        <div class="match-actions">
-          <button class="btn btn-primary">Accepter l'échange</button>
-          <button class="btn btn-secondary">En savoir plus</button>
-        </div>
-      </div>
-
-      <div class="match-card">
-        <div class="match-header">
-          <span class="match-score">Match: 90%</span>
-          <span class="match-status accepted">Accepté</span>
-        </div>
-        
-        <div class="match-users">
-          <div class="user-side">
-            <span class="avatar">👨‍💻</span>
-            <h4>Alexandre Chen</h4>
-            <p class="skill-offer">Propose: React & JavaScript</p>
-          </div>
-          
-          <div class="exchange-icon">⇄</div>
-          
-          <div class="user-side">
-            <span class="avatar">👩‍💼</span>
-            <h4>Léa Bernard</h4>
-            <p class="skill-offer">Propose: Marketing Digital & SEO</p>
-          </div>
-        </div>
-
-        <div class="match-details">
-          <p><strong>Échange en cours</strong></p>
-          <p>Vous avez accepté cet échange. Contactez votre partenaire pour planifier vos sessions!</p>
-        </div>
-
-        <div class="match-actions">
-          <button class="btn btn-primary">Contacter</button>
-          <button class="btn btn-secondary">Voir le profil</button>
-        </div>
-      </div>
-
-      <div class="match-card">
-        <div class="match-header">
-          <span class="match-score">Match: 95%</span>
-          <span class="match-status accepted">Accepté</span>
-        </div>
-        
-        <div class="match-users">
-          <div class="user-side">
-            <span class="avatar">📸</span>
-            <h4>Marc Lefebvre</h4>
-            <p class="skill-offer">Propose: Photographie Pro</p>
-          </div>
-          
-          <div class="exchange-icon">⇄</div>
-          
-          <div class="user-side">
-            <span class="avatar">🎬</span>
-            <h4>Julie Moreau</h4>
-            <p class="skill-offer">Propose: Montage Vidéo</p>
-          </div>
-        </div>
-
-        <div class="match-details">
-          <p><strong>Excellent match!</strong></p>
-          <p>Compétences très complémentaires dans le domaine de l'audiovisuel.</p>
-        </div>
-
-        <div class="match-actions">
-          <button class="btn btn-primary">Contacter</button>
-          <button class="btn btn-secondary">Laisser un avis</button>
+          <button class="btn btn-primary btn-sm">💬 Contacter</button>
         </div>
       </div>
     </div>
-
     <div class="find-more">
-      <h2>Pas encore de match parfait ?</h2>
+      <h2>Pas assez d'invitations ?</h2>
       <p>Explorez plus de compétences pour trouver votre partenaire idéal</p>
       <a routerLink="/skills" class="btn btn-primary">Découvrir plus de compétences</a>
     </div>

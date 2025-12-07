@@ -12,6 +12,7 @@ import { SkillService } from '../../../services/skill.service';
 export class AddSkillFormComponent implements OnInit {
   skillForm!: FormGroup;
   categories = ['Programmation', 'Design', 'Marketing', 'Musique', 'Audiovisuel', 'Bureautique', 'Art', 'Autre'];
+  avatars = ['👨‍💻', '👩‍💻', '👨‍🎨', '👩‍🎨', '👨‍💼', '👩‍💼'];
   submitted = false;
 
   constructor(
@@ -29,6 +30,7 @@ export class AddSkillFormComponent implements OnInit {
       offering: ['', Validators.required],
       seeking: ['', Validators.required],
       duration: ['', Validators.required],
+      userAvatar: ['👨‍💻', Validators.required],
       tags: ['']
     });
   }
@@ -48,7 +50,6 @@ export class AddSkillFormComponent implements OnInit {
       ...this.skillForm.value,
       userId: 1, // Mock user ID
       userName: 'Utilisateur Demo',
-      userAvatar: '👤',
       available: true,
       tags: this.skillForm.value.tags.split(',').map((t: string) => t.trim()).filter((t: string) => t)
     };

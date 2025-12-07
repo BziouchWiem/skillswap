@@ -174,6 +174,38 @@
       "userName": "Utilisateur Demo",
       "userAvatar": "👤",
       "available": true
+    },
+    {
+      "id": "a705",
+      "title": "bbbnnnn",
+      "category": "Musique",
+      "level": 3,
+      "description": "nnjhhhhnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+      "offering": "bb",
+      "seeking": "hhb",
+      "duration": "2",
+      "tags": [],
+      "userId": 1,
+      "userName": "Utilisateur Demo",
+      "userAvatar": "👤",
+      "available": true
+    },
+    {
+      "id": "f71d",
+      "title": "bbbnbbb",
+      "category": "Musique",
+      "level": 4,
+      "description": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "offering": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "seeking": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "duration": "5",
+      "userAvatar": "👩‍💼",
+      "tags": [
+        "dd"
+      ],
+      "userId": 1,
+      "userName": "Utilisateur Demo",
+      "available": true
     }
   ],
   "matches": [
@@ -183,7 +215,7 @@
       "skill2Id": 2,
       "user1Id": 1,
       "user2Id": 2,
-      "status": "pending",
+      "status": "accepted",
       "matchScore": 85,
       "createdAt": "2025-11-25T10:30:00Z"
     },

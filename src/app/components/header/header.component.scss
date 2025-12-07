@@ -38,7 +38,7 @@
 
 .logo-icon {
   font-size: 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -46,7 +46,7 @@
 
 .logo-text {
   font-size: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -76,13 +76,13 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
       transition: width 0.3s ease;
     }
 
     &:hover {
       color: white;
-      background: rgba(102, 126, 234, 0.1);
+      background: rgba(156, 163, 175, 0.1);
       transform: translateY(-2px);
 
       &::after {
@@ -92,7 +92,7 @@
 
     &.active {
       color: white;
-      background: rgba(102, 126, 234, 0.2);
+      background: rgba(156, 163, 175, 0.2);
 
       &::after {
         width: 100%;
@@ -100,7 +100,7 @@
     }
 
     &.btn-add {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
       color: white;
       font-weight: 700;
       border: none;
@@ -110,7 +110,7 @@
       }
 
       &:hover {
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 4px 12px rgba(156, 163, 175, 0.4);
         transform: translateY(-2px);
       }
     }

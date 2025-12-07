@@ -1,1 +1,181 @@
-<p>skill-details works!</p>
+<div class="skill-details-page">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading skill details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="error-container">
+    <div class="error-content">
+      <h2>❌ {{ error }}</h2>
+      <button class="btn btn-primary" (click)="goBack()">Back to Skills</button>
+    </div>
+  </div>
+
+  <!-- Skill Details Content -->
+  <div *ngIf="skill && !loading" class="details-wrapper">
+    <!-- Header with Back Button -->
+    <div class="page-header">
+      <button class="btn-back" (click)="goBack()">
+        <span>← Back to Skills</span>
+      </button>
+      <h1>Skill Details</h1>
+      <div class="header-spacer"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="details-container">
+      <!-- Left Column: Main Skill Info -->
+      <div class="main-content">
+        <!-- Skill Hero Section -->
+        <div class="skill-hero">
+          <div class="hero-background"></div>
+          <div class="hero-content">
+            <div class="user-header">
+              <div class="user-avatar-large">{{ skill.userAvatar }}</div>
+              <div class="user-meta">
+                <h1>{{ skill.title }}</h1>
+                <p class="user-name">by {{ skill.userName }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Info Cards -->
+        <div class="quick-info-grid">
+          <div class="info-card">
+            <span class="info-label">Level</span>
+            <div class="info-value">
+              <span class="stars">{{ getStarRating(skill.level) }}</span>
+              <span class="level-text">{{ getLevelText(skill.level) }}</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <span class="info-label">Category</span>
+            <span class="info-value category-badge">{{ skill.category }}</span>
+          </div>
+          <div class="info-card">
+            <span class="info-label">Time Commitment</span>
+            <span class="info-value">{{ skill.duration }}</span>
+          </div>
+          <div class="info-card">
+            <span class="info-label">Availability</span>
+            <span class="info-value" [ngClass]="{ available: skill.available, unavailable: !skill.available }">
+              {{ skill.available ? '✓ Available' : '✗ Not Available' }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="section">
+          <h2>📝 Description</h2>
+          <p class="description-text">{{ skill.description }}</p>
+        </div>
+
+        <!-- Exchange Details -->
+        <div class="exchange-section">
+          <div class="exchange-column offering">
+            <h3>🎁 What They Offer</h3>
+            <p class="exchange-text">{{ skill.offering }}</p>
+          </div>
+          <div class="exchange-divider">⇄</div>
+          <div class="exchange-column seeking">
+            <h3>🔍 What They're Seeking</h3>
+            <p class="exchange-text">{{ skill.seeking }}</p>
+          </div>
+        </div>
+
+        <!-- Tags Section -->
+        <div class="section">
+          <h2>🏷️ Skills & Tags</h2>
+          <div class="tags-container">
+            <span *ngFor="let tag of skill.tags" class="tag">{{ tag }}</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-secondary" (click)="sendMessage()">
+            💬 Send Message
+          </button>
+          <button class="btn btn-danger" (click)="reportSkill()">
+            ⚠️ Report
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: User Profile Card -->
+      <div class="sidebar">
+        <div class="user-card">
+          <div class="user-card-header">
+            <div class="large-avatar">{{ skill.userAvatar }}</div>
+            <h3>{{ skill.userName }}</h3>
+          </div>
+
+          <div class="user-stats">
+            <div class="stat">
+              <span class="stat-label">Level</span>
+              <span class="stat-value">{{ getLevelText(skill.level) }}</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Duration</span>
+              <span class="stat-value">{{ skill.duration }}</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-full" (click)="sendMessage()">
+            💬 Send Message
+          </button>
+
+          <div class="contact-info">
+            <p class="info-item">
+              <span class="icon">📧</span>
+              <span>Contact via SkillSwap</span>
+            </p>
+            <p class="info-item">
+              <span class="icon">⭐</span>
+              <span>Verified Member</span>
+            </p>
+            <p class="info-item">
+              <span class="icon">🔒</span>
+              <span>Profile Verified</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Matches Modal -->
+  <div *ngIf="showMatchesModal" class="modal-overlay" (click)="closeMatchesModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>🤝 Potential Matches</h2>
+        <button class="modal-close" (click)="closeMatchesModal()">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div *ngIf="matches.length === 0" class="no-matches">
+          <p>No matches found at this time. Check back later!</p>
+        </div>
+
+        <div *ngFor="let match of matches" class="match-item">
+          <div class="match-user">
+            <span class="match-avatar">{{ match.userAvatar }}</span>
+            <div class="match-info">
+              <h4>{{ match.title }}</h4>
+              <p>by {{ match.userName }}</p>
+              <div class="match-rating">
+                {{ getStarRating(match.level) }}
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-sm" (click)="initiateExchange(match)">
+            Exchange
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

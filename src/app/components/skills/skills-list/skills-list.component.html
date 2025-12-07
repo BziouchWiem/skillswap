@@ -39,6 +39,7 @@
       <app-skill-card 
         *ngFor="let skill of filteredSkills" 
         [skill]="skill"
+        (choosePartner)="onChoosePartner($event)"
       ></app-skill-card>
     </div>
 

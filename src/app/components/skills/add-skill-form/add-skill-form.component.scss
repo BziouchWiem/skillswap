@@ -10,7 +10,7 @@
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: #f1f5f9;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -183,3 +183,40 @@
 .form-group.success textarea {
   border-color: #34d399;
 }
+
+.avatar-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.avatar-option {
+  font-size: 2.5rem;
+  padding: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+
+  &:hover {
+    background: rgba(156, 163, 175, 0.1);
+    border-color: #9ca3af;
+    transform: scale(1.1);
+  }
+
+  &.selected {
+    background: rgba(156, 163, 175, 0.2);
+    border-color: #9ca3af;
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.3);
+  }
+}
+

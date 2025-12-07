@@ -55,6 +55,23 @@
         </div>
       </div>
 
+      <!-- Avatar Selection -->
+      <div class="form-group">
+        <label>Choisissez votre avatar *</label>
+        <div class="avatar-selector">
+          <button 
+            type="button"
+            *ngFor="let avatar of avatars"
+            class="avatar-option"
+            [class.selected]="skillForm.value.userAvatar === avatar"
+            (click)="skillForm.patchValue({userAvatar: avatar})"
+            title="Avatar: {{ avatar }}"
+          >
+            {{ avatar }}
+          </button>
+        </div>
+      </div>
+
       <!-- Description -->
       <div class="form-group">
         <label for="description">Description détaillée *</label>

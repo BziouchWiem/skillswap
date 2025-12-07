@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SkillService, Skill } from '../../../services/skill.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class SkillsListComponent implements OnInit {
   searchTerm: string = '';
   loading: boolean = true;
 
-  constructor(private skillService: SkillService) { }
+  constructor(private skillService: SkillService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadSkills();
@@ -43,6 +44,32 @@ export class SkillsListComponent implements OnInit {
 
   onSearch(): void {
     this.applyFilters();
+  }
+
+  onChoosePartner(skill: Skill): void {
+    // Create an invitation with this skill
+    const invitation = {
+      score: Math.floor(Math.random() * 15) + 80, // Random score between 80-95
+      status: 'pending' as const,
+      partner: {
+        name: skill.userName,
+        avatar: skill.userAvatar,
+        skill: skill.offering
+      },
+      yourSkill: skill.seeking,
+      reason: `${skill.userName} propose ${skill.offering} et vous proposez ${skill.seeking}. Un excellent match!`
+    };
+
+    // Store the invitation in localStorage
+    const existingSentInvitations = JSON.parse(localStorage.getItem('sentInvitations') || '[]');
+    existingSentInvitations.push(invitation);
+    localStorage.setItem('sentInvitations', JSON.stringify(existingSentInvitations));
+
+    // Show success message
+    alert(`Invitation envoyée à ${skill.userName}!`);
+    
+    // Navigate to invitations page
+    this.router.navigate(['/invitations']);
   }
 
   private applyFilters(): void {

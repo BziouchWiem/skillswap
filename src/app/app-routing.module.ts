@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'skills', component: SkillsListComponent },
   { path: 'skills/:id', component: SkillDetailsComponent },
   { path: 'add-skill', component: AddSkillFormComponent },
-  { path: 'matches', component: MatchListComponent },
+  { path: 'invitations', component: MatchListComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,4 +1,4 @@
-<div class="skill-card" [routerLink]="['/skills', skill.id]">
+<div class="skill-card" (click)="onCardClick()">
   <div class="card-header">
     <div class="user-info">
       <span class="avatar">{{ skill.userAvatar }}</span>
@@ -36,5 +36,17 @@
     <span class="availability" [class.available]="skill.available">
       {{ skill.available ? '✓ Disponible' : '✗ Non disponible' }}
     </span>
+  </div>
+
+  <div class="card-actions">
+    <button 
+      *ngIf="!isOwnSkill()"
+      class="btn btn-primary" 
+      (click)="onChoosePartner($event)" 
+      [disabled]="invitationSent"
+    >
+      {{ invitationSent ? 'Invitation envoyée' : '📧 Envoyer une invitation' }}
+    </button>
+    <span *ngIf="isOwnSkill()" class="own-skill-label">✓ Votre compétence</span>
   </div>
 </div>

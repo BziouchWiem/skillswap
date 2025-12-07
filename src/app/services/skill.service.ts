@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Skill {
-  id?: number;
+  id?: string | number;
   title: string;
   category: string;
   level: number;
@@ -52,7 +52,7 @@ export class SkillService {
     return this.http.get<Skill[]>(`${this.baseUrl}/skills`);
   }
 
-  getSkillById(id: number): Observable<Skill> {
+  getSkillById(id: number | string): Observable<Skill> {
     return this.http.get<Skill>(`${this.baseUrl}/skills/${id}`);
   }
 
@@ -91,7 +91,7 @@ export class SkillService {
   }
 
   // Matching algorithm
-  findMatches(skillId: number, skills: Skill[]): Skill[] {
+  findMatches(skillId: number | string, skills: Skill[]): Skill[] {
     const currentSkill = skills.find(s => s.id === skillId);
     if (!currentSkill) return [];
 
